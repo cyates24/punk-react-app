@@ -9,18 +9,23 @@ class BeerCard extends React.Component {
   };
 
   render() {
+    const {isClicked} = this.state
+    const {name, tagline,abv,first_brewed,description} = this.props.beer
     return (
       <div className="main">
         <div>
-          {this.props.beer.name}
+          {name}
           <button
-            className={this.state.isClicked ? "text-red" : "text- green"}
+            className={isClicked ? "text-red" : "text- green"}
             onClick={this.likeButton}
           >
-            {this.state.isClicked ? "liked" : "like"}
+            {isClicked ? "liked" : "like"}
           </button>
         </div>
-        <div>{this.props.beer.tagline}</div>
+        <div>{tagline}</div>
+        <div>{abv}</div>
+        <div>{first_brewed}</div>
+        <div>{description}</div>
       </div>
     );
   }
